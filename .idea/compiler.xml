@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="campingszwaenepoel-infrastructure" />
+        <module name="campingszwaenepoel-domain" />
+        <module name="campingszwaenepoel-service-api" />
+        <module name="campingszwaenepoel-service-impl" />
+        <module name="campingszwaenepoel-presentation" />
+        <module name="campingszwaenepoel-common" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

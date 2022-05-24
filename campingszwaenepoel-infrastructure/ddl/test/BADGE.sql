@@ -1,0 +1,7 @@
+CREATE TABLE `BADGE` (
+  `ID` int(11) NOT NULL auto_increment,
+  `BADGENUMMER` varchar(20) default NULL,
+  `BADGETYPE` varchar(4) NOT NULL,
+  PRIMARY KEY  (`ID`),
+  UNIQUE KEY `BADGENUMBER` (`BADGENUMMER`)
+) ENGINE=InnoDB

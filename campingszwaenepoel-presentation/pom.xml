@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>be.camping</groupId>
+		<artifactId>campingszwaenepoel</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>campingszwaenepoel-presentation</artifactId>
+	<packaging>jar</packaging>
+	<name>Campings Zwaenepoel Presentation</name>
+	<version>0.0.1</version>
+
+	<build>
+		<plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>be.camping.campingzwaenepoel.presentation.CampingZwaenepoel</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+		</plugins>
+	</build>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>be.camping</groupId>
+			<artifactId>campingszwaenepoel-service-api</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>be.camping</groupId>
+			<artifactId>campingszwaenepoel-service-impl</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.swinglabs</groupId>
+			<artifactId>pdf-renderer</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>be.fedict.eid-viewer</groupId>
+			<artifactId>eid-viewer-lib</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>be.fedict.eid-viewer</groupId>
+			<artifactId>eid-viewer-gui</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.pdfbox</groupId>
+		    <artifactId>pdfbox-app</artifactId>
+		    <version>2.0.2</version>
+		</dependency>
+		<!-- dependency>
+			<groupId>org.apache</groupId>
+			<artifactId>pdfbox-app</artifactId>
+			<version>2.0.2</version>
+		</dependency-->
+	</dependencies>
+
+</project>

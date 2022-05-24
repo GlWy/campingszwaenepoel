@@ -1,0 +1,20 @@
+CREATE TABLE `BETALER` (
+  `ID` int(11) NOT NULL auto_increment,
+  `FK_HOOFDBETALER_ID` int(11) default NULL,
+  `FK_BETALER_ID` int(11) default NULL,
+  `DATUM_VAN` date NOT NULL,
+  `DATUM_TOT` date default NULL,
+  `OPMERKING` mediumtext,
+  `FK_ADMINISTRATIE_ID` int(11) default NULL,
+  `ADMINISTRATIE_GEDAAN` tinyint(1) NOT NULL default '0',
+  `FK_STANDPLAATS_ID` int(11) NOT NULL,
+  `REGLEMENT_UITLEG_NAAM` int(1) default '0',
+  `REGLEMENT_UITLEG_DATUM` date default NULL,
+  `REGLEMENT_GETEKEND_NAAM` int(1) default '0',
+  `REGLEMENT_GETEKEND_DATUM` date default NULL,
+  `BAREEL_UITLEG_NAAM` int(1) default '0',
+  `BAREEL_UITLEG_DATUM` date default NULL,
+  `BAREEL_GETEKEND_NAAM` int(1) default '0',
+  `BAREEL_GETEKEND_DATUM` date default NULL,
+  PRIMARY KEY  (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8

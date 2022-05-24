@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<import resource="classpath:/spring/integration-applicationContext.xml"/>
+	<import resource="classpath:/spring/services-applicationContext.xml" />
+
+	<!-- definition of main frame and it's main panel -->
+	<bean id="mainFrame" class="be.camping.campingzwaenepoel.presentation.ui.MainFrame" init-method="init">
+	    <property name="contentPane" ref="mainPanel" />
+	    <property name="title">
+	      <value>Campings Zwaenepoel</value>
+	    </property>
+	</bean>
+	
+	<!-- Controller, used to communicate with the many panels, frames, ... -->
+	<bean id="controller" class="be.camping.campingzwaenepoel.presentation.Controller">
+	    <property name="header" ref="header" />
+	    <property name="mainNavigationpanel" ref="mainNavigationpanel" />
+	    <property name="persoonPanel" ref="persoonPanel" />
+	</bean>
+	
+	<!-- the main panel contains a header and a tabbedpane, each with its own controller -->
+	<bean id="mainPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.mainpanel.HoofdPanel" init-method="initComponents">
+	    <property name="header" ref="header" />
+	    <property name="mainNavigationpanel" ref="mainNavigationpanel" />
+	</bean>
+	<bean id="header" class="be.camping.campingzwaenepoel.presentation.ui.panels.mainpanel.Header" init-method="initComponents">
+	    <property name="controller" ref="controller" />
+	</bean>
+	<bean id="mainNavigationpanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.mainpanel.MainNavigationpanel" init-method="initComponents">
+	    <property name="controller" ref="controller" />
+	    <property name="opmerkingenPanel" ref="opmerkingenPanel" />
+	    <property name="standplaatsPanel" ref="standplaatsPanel" />
+	    <property name="inschrijvingPanel" ref="inschrijvingPanel" />
+	    <property name="persoonPanel" ref="persoonPanel" />
+	    <property name="betalerPanel" ref="betalerPanel" />
+	    <property name="kassaPanel" ref="kassaPanel" />
+	    <property name="betalingPanel" ref="betalingPanel" />
+	    <property name="toegelatenAutoPanel" ref="toegelatenAutoPanel" />
+	    <property name="zoekPanel" ref="zoekPanel" />
+	    <property name="fotoPanel" ref="fotoPanel" />
+	    <property name="stamboomPanel" ref="stamboomPanel" />
+	    <property name="inUitPanel" ref="inUitPanel" />
+	    <property name="geschiedenisPanel" ref="geschiedenisPanel" />
+	    <property name="telefoonPanel" ref="telefoonPanel" />
+	    <property name="agendaPanel" ref="agendaPanel" />
+	    <property name="rapportenPanel" ref="rapportenPanel" />
+	    <property name="persoonComparisonPanel" ref="persoonComparisonPanel" />
+	</bean>
+
+	<!-- the panels, frames for each tab, each with its own controller -->
+	<bean id="opmerkingenPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.OpmerkingenPanel" init-method="initComponents">
+	    <property name="controller" ref="controller" />
+	</bean>
+
+	<bean id="standplaatsPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.StandplaatsPanel" init-method="initComponents">
+ 	    <property name="controller" ref="controller" />
+	</bean>
+
+	<bean id="inschrijvingPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.InschrijvingPanel" >
+	    <property name="controller" ref="controller" />
+	</bean>
+
+	<bean id="persoonPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.PersoonPanel" init-method="initComponents">
+	    <property name="controller" ref="controller" />
+	</bean>
+
+	<bean id="betalerPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.BetalerPanel" init-method="initComponents">
+	    <property name="controller" ref="controller" />
+	</bean>
+
+	<bean id="kassaPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.KassaPanel" init-method="initComponents">
+	    <property name="controller" ref="controller" />
+	</bean>
+
+	<bean id="betalingPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.BetalingPanel" init-method="initComponents">
+	    <property name="controller" ref="controller" />
+	</bean>
+
+	<bean id="toegelatenAutoPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.ToegelatenAutoPanel" init-method="initComponents">
+	    <property name="controller" ref="controller" />
+	</bean>
+
+	<bean id="zoekPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.ZoekPanel" init-method="initComponents">
+	    <property name="controller" ref="controller" />
+	</bean>
+
+	<bean id="fotoPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.FotoPanel" init-method="initComponents">
+	    <property name="controller" ref="controller" />
+	    <property name="fotoOptiesPanel" ref="fotoOptiesPanel"/>
+	</bean>
+
+	<bean id="stamboomPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.StamboomPanel" init-method="initComponents">
+		<property name="controller" ref="controller" />
+	</bean>
+
+	<bean id="inUitPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.InUitPanel" init-method="initComponents">
+	    <property name="controller" ref="controller" />
+	</bean>
+
+	<bean id="geschiedenisPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.GeschiedenisPanel" init-method="initComponents">
+	    <property name="controller" ref="controller" />
+	</bean>
+
+	<bean id="telefoonPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.TelefoonPanel" init-method="initComponents">
+	</bean>
+
+	<bean id="agendaPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.AgendaPanel" init-method="initComponents">
+	    <property name="controller" ref="controller" />
+	</bean>
+
+	<bean id="rapportenPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.RapportenPanel" init-method="initComponents">
+	    <property name="directoryChooser" ref="directoryChooserPanel" />
+	    <property name="fotoChooser" ref="fotoChooserPanel" />
+	    <property name="controller" ref="controller" />
+	</bean>
+
+	<bean id="directoryChooserPanel" class="be.camping.campingzwaenepoel.presentation.dialog.directorychooser.DirectoryChooser">
+	</bean>
+
+	<bean id="fotoChooserPanel" class="be.camping.campingzwaenepoel.presentation.dialog.fotochooser.FotoChooser">
+	    <property name="controller" ref="controller" />
+	</bean>
+
+	<bean id="fotoOptiesPanel" class="be.camping.campingzwaenepoel.presentation.dialog.foto.FotoOptiesPanel" init-method="initComponents">
+	</bean>
+
+	<bean id="persoonComparisonPanel" class="be.camping.campingzwaenepoel.presentation.ui.panels.PersoonComparisonPanel" init-method="initComponents">
+	    <property name="controller" ref="controller" />
+	</bean>
+</beans>
